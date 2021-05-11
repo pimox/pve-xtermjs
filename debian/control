@@ -1,8 +1,8 @@
 Source: rust-termproxy
 Section: admin
 Priority: optional
-Build-Depends: debhelper (>= 11),
- dh-cargo (>= 18),
+Build-Depends: debhelper (>= 12),
+ dh-cargo (>= 24),
  cargo:native,
  rustc:native,
  libstd-rust-dev,
@@ -11,12 +11,13 @@ Build-Depends: debhelper (>= 11),
  librust-mio-0.7+default-dev,
  librust-mio-0.7+net-dev,
  librust-mio-0.7+os-ext-dev,
- librust-proxmox-0.10-dev
+ librust-proxmox-0.11-dev (>= 0.11.1-~~)
 Maintainer: Proxmox Support Team <support@proxmox.com>
-Standards-Version: 4.4.1
+Standards-Version: 4.5.1
 Vcs-Git: git://git.proxmox.com/git/pve-xtermjs.git
 Vcs-Browser: https://git.proxmox.com/?p=pve-xtermjs.git;a=summary
 Homepage: http://www.proxmox.com
+Rules-Requires-Root: no
 
 Package: pve-xtermjs
 Architecture: any
@@ -33,7 +34,7 @@ Provides:
  ${cargo:Provides}
 Built-Using: ${cargo:Built-Using}
 XB-X-Cargo-Built-Using: ${cargo:X-Cargo-Built-Using}
-Description: Binaries built from the Rust termproxy crate
+Description: Rust crate "termproxy"
  This package contains the following binaries built from the Rust crate
  "termproxy":
   - termproxy

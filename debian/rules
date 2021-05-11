@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+export DEB_CARGO_PACKAGE=pve-xtermjs
+
 %:
 	dh $@ --buildsystem cargo
 
