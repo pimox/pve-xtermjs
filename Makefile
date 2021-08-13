@@ -6,10 +6,10 @@ CRATENAME=termproxy
 
 export VERSION=${DEB_VERSION_UPSTREAM_REVISION}
 
-XTERMJSVER=4.7.0
+XTERMJSVER=4.12.0
 XTERMJSTGZ=xterm-${XTERMJSVER}.tgz
 
-FITADDONVER=0.4.0
+FITADDONVER=0.5.0
 FITADDONTGZ=xterm-addon-fit-${FITADDONVER}.tgz
 
 SRCDIR=src
@@ -40,12 +40,12 @@ build:
 	rm -rf build
 	rm -f debian/control
 	debcargo package \
-	--config debian/debcargo.toml \
-	--changelog-ready \
-	--no-overlay-write-back \
-	--directory build \
-	$(CRATENAME) \
-	$(shell dpkg-parsechangelog -l debian/changelog -SVersion | sed -e 's/-.*//')
+	  --config debian/debcargo.toml \
+	  --changelog-ready \
+	  --no-overlay-write-back \
+	  --directory build \
+	  $(CRATENAME) \
+	  $(shell dpkg-parsechangelog -l debian/changelog -SVersion | sed -e 's/-.*//')
 	rm build/Cargo.lock
 	find build/debian -name "*.hint" -delete
 	cp build/debian/control debian/control
